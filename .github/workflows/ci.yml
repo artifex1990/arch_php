@@ -8,9 +8,9 @@ jobs:
 
     steps:
       - name: Checkout Repository
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Composer Install
-      - uses: php-actions/composer@v6
+        uses: php-actions/composer@v6
       - name: Composer Test 2
         run: |
           composer test

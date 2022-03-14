@@ -1,0 +1,22 @@
+{
+    "name": "stokato/php",
+    "type": "project",
+    "require": {
+        "phpunit/phpunit": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Architekt\\": "src/"
+        }
+    },
+    "scripts": {
+
+        "test": "phpunit tests/*.php"
+    },
+    "authors": [
+        {
+            "name": "stokato",
+            "email": "pavel@demjanov.ru"
+        }
+    ]
+}

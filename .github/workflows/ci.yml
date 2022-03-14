@@ -7,5 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
       - uses: actions/checkout@v2
+      - name: Composer Install
       - uses: php-actions/composer@v6
+
+      - name: Composer Test
+        run: |
+          composer test

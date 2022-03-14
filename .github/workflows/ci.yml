@@ -13,5 +13,6 @@ jobs:
         uses: php-actions/composer@v6
       - name: Composer Test
         run: |
+          ls
           chmod -R 777 /arch_php/
           composer test

@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: php-actions/composer@v6
         with:
-          command: composer test
+          command: composer install && composer test

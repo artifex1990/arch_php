@@ -14,4 +14,4 @@ jobs:
       - uses: php-actions/composer@v6
 
       - name: Composer Test
-      - uses: composer test
+        run: composer test

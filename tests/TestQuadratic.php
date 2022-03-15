@@ -8,12 +8,12 @@ class TestQuadratic extends TestCase
     const DEBUG_MODE = true;
 
     /**
-     * @protected
+     * @private
      * @method echoCurTestInfo
      * @param {string} $function_name
      * @param {boolean} [$substrt=true]
      */
-    protected function echoCurTestInfo($function_name, $substrt = true)
+    private function echoCurTestInfo($function_name, $substrt = true)
     {
         if (self::DEBUG_MODE) {
             if ($substrt) {

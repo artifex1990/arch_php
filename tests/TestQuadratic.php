@@ -21,13 +21,25 @@ class TestQuadratic extends TestCase
             }
 
             $strInfo = 'Testing ' . $function_name;
-            echo "> " . $strInfo ."\n";
+            echo "> " . $strInfo . PHP_EOL;
         }
     }
 
-    public function testSolve()
+    public function testDontRootsEquations()
     {
         $this->echoCurTestInfo(__FUNCTION__);
         $this->assertSame([], Quadratic::solve(1, 0, 1));
+    }
+
+    public function testTwoRootsEquations()
+    {
+        $this->echoCurTestInfo(__FUNCTION__);
+        $this->assertSame([1.0, -1.0], Quadratic::solve(1, 0, -1));
+    }
+
+    public function testOneRootsEquations()
+    {
+        $this->echoCurTestInfo(__FUNCTION__);
+        $this->assertSame([-1.0], Quadratic::solve(1, 2, 1));
     }
 }

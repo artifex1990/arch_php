@@ -42,7 +42,7 @@ class TestQuadratic extends TestCase
     public function testOneRootsEquations()
     {
         $this->echoCurTestInfo(__FUNCTION__);
-        $this->assertSame([-0.00000001], Quadratic::solve(0.0001, 0.0002, 0.0001));
+        $this->assertSame([-0.000001], Quadratic::solve(0.001, 0.002, 0.001));
     }
 
     public function testCoeffAMustDontEqualZero()

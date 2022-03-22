@@ -2,6 +2,8 @@
 
 use PHPUnit\Framework\TestCase;
 use Architekt\Quadratic;
+use Architekt\ZeroException;
+use Architekt\NotNumericException;
 
 class TestQuadratic extends TestCase
 {
@@ -40,6 +42,38 @@ class TestQuadratic extends TestCase
     public function testOneRootsEquations()
     {
         $this->echoCurTestInfo(__FUNCTION__);
-        $this->assertSame([-1.0], Quadratic::solve(1, 2, 1));
+        $this->assertSame([-0.00000001], Quadratic::solve(0.0001, 0.0002, 0.0001));
+    }
+
+    public function testCoeffAMustDontEqualZero()
+    {
+        $this->echoCurTestInfo(__FUNCTION__);
+        $this->expectException(ZeroException::class);
+
+        Quadratic::solve(0, 2, 1);
+    }
+
+    public function testIsNanNumeric()
+    {
+        $this->echoCurTestInfo(__FUNCTION__);
+        $this->expectException(NotNumericException::class);
+
+        Quadratic::solve(acos(1.01), 2, 1);
+    }
+
+    public function testIsInfiniteNumeric()
+    {
+        $this->echoCurTestInfo(__FUNCTION__);
+        $this->expectException(NotNumericException::class);
+
+        Quadratic::solve(log(0), 2, 1);
+    }
+
+    public function testIsNanAndInfiniteNumeric()
+    {
+        $this->echoCurTestInfo(__FUNCTION__);
+        $this->expectException(NotNumericException::class);
+
+        Quadratic::solve(log(0), 3, acos(1.01));
     }
 }
